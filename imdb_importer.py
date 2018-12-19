@@ -12,6 +12,7 @@ class IMDB_importer(object):
         decompressed_file = gzip.GzipFile(fileobj=compressed_file)
         return decompressed_file
 
+    # only for test
     def write_file(self):
         title = self.download_and_decompressed_File('title.basics.tsv.gz')
         with open('title.tsv','wb') as f:
@@ -126,7 +127,5 @@ class IMDB_importer(object):
                 connection.close()
                 print('Database connection closed.')
 
-#test = IMDB_importer()
-#test.write_file()
 test = IMDB_importer()
 test.connect_to_database_and_write_data()
